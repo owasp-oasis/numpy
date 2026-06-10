@@ -309,7 +309,7 @@ class DataSource:
         #       for compressed versions of files.
 
         scheme, netloc, upath, uparams, uquery, ufrag = urlparse(path)
-        return bool(scheme and netloc)
+        return bool(scheme in ('http', 'https', 'ftp') and netloc)
 
     def _cache(self, path):
         """Cache the file specified by path.
